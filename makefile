@@ -18,4 +18,4 @@ main.o: main.c my_mat.h
 c: clean
 
 clean:
-	rm -f *.o main
+	rm -f *.o connections
