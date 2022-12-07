@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "my_mat.h"
 #define n 2
-int mat[n][n];
+int mat[n][n] = {0};
 
 void scanMatrix() {
     for(int i=0;i<n;i++) {
@@ -23,6 +23,8 @@ void shortestPathMatrix(int from, int to) {
     for(int k=0;k<n;k++) {
         for(int i=0;i<n;i++) {
             for(int j=0;j<n;j++) {
+                if (k==i || k==j)
+                    continue;
                 if(mat[i][j] < (mat[i][k]+mat[k][j]))
                     mat[i][j] = mat[i][j];
                 else

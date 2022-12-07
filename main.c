@@ -3,7 +3,7 @@
 
 int main() {
     char command = '0';
-    int i,j;
+    int i,j = 0;
     while(command != 'D') {
         scanf(" %c", &command);
         switch (command)
