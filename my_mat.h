@@ -1,5 +1,5 @@
-void scanMatrix();
-void existMatrix(int i, int j);
-void shortestPathMatrix(int from, int to);
+#define n 10
 
-void printMatrix();
+void scanMatrix(int** mat);
+void existMatrix(int** mat, int i, int j);
+void shortestPathMatrix(int** mat, int from, int to);

@@ -1,9 +1,9 @@
-#include <stdio.h>
 #include "my_mat.h"
+#include <stdio.h>
+#include <stdlib.h>
 #define n 10
-int mat[n][n] = {0};
 
-void scanMatrix() {
+void scanMatrix(int** mat) {
     for(int i=0;i<n;i++) {
         for(int j=0;j<n;j++) {
             printf("mat[%d][%d]=",i,j);
@@ -12,14 +12,14 @@ void scanMatrix() {
     }
 }
 
-void existMatrix(int i, int j) {
+void existMatrix(int** mat, int i, int j) {
     if(mat[i][j] > 0)
         printf("True");
     else
         printf("False");
 }
 
-void shortestPathMatrix(int from, int to) {
+void shortestPathMatrix(int** mat, int from, int to) {
     for(int k=0;k<n;k++) {
         for(int i=0;i<n;i++) {
             for(int j=0;j<n;j++) {
@@ -36,12 +36,4 @@ void shortestPathMatrix(int from, int to) {
         printf("-1");
     else 
         printf("%d", mat[from][to]);
-}
-
-void printMatrix() {
-    for(int i=0;i<n;i++) {
-        for(int j=0;j<n;j++)
-            printf("%d ", mat[i][j]);
-        printf("\n");
-    }
 }
