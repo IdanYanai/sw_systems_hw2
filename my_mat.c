@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "my_mat.h"
-#define n 2
+#define n 10
 int mat[n][n] = {0};
 
 void scanMatrix() {
