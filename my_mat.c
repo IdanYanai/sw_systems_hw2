@@ -5,35 +5,39 @@
 
 void scanMatrix(int** mat) {
     for(int i=0;i<n;i++) {
-        for(int j=0;j<n;j++) {
-            printf("mat[%d][%d]=",i,j);
-            scanf("%d", &mat[i][j]);
+        for(int j=0;j<n;j++)
+            scanf(" %d", &mat[i][j]);
+    }
+
+    for(int k=0;k<n;k++) {
+        for(int i=0;i<n;i++) {
+            for(int j=0;j<n;j++) {
+                if ((k!=i) && (k!=j) && (i!=j)) {
+                    if(mat[i][k]==0 || mat[k][j]==0)
+                        continue;
+                    if(mat[i][j] == 0)
+                        mat[i][j] = mat[i][k]+mat[k][j];
+                    else if(mat[i][j] < (mat[i][k]+mat[k][j]))
+                        mat[i][j] = mat[i][j];
+                    else
+                        mat[i][j] = mat[i][k]+mat[k][j];
+                }         
+            }
         }
     }
 }
 
 void existMatrix(int** mat, int i, int j) {
     if(mat[i][j] > 0)
-        printf("True");
+        printf("True\n");
     else
-        printf("False");
+        printf("False\n");
 }
 
+
 void shortestPathMatrix(int** mat, int from, int to) {
-    for(int k=0;k<n;k++) {
-        for(int i=0;i<n;i++) {
-            for(int j=0;j<n;j++) {
-                if (k==i || k==j)
-                    continue;
-                if(mat[i][j] < (mat[i][k]+mat[k][j]))
-                    mat[i][j] = mat[i][j];
-                else
-                    mat[i][j] = mat[i][k]+mat[k][j];         
-            }
-        }
-    }
     if(mat[from][to] == 0)
-        printf("-1");
+        printf("-1\n");
     else 
-        printf("%d", mat[from][to]);
+        printf("%d\n", mat[from][to]);
 }
